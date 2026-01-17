@@ -1,0 +1,12 @@
+{
+  "type":"init_game"
+}
+
+
+{
+  "type":"move",
+  "move" : {
+    "from":"d2",
+    "to":"d4"
+  }
+}

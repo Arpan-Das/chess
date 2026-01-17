@@ -41,11 +41,14 @@ export class GameManager{
                     this.pendingUser = socket;
                 }
             }
-
+            console.log("above Move condition in side gameManager")
             if(message.type === MOVE){
+                console.log("check 1")
                 const game = this.games.find(game =>  game.player1 == socket || game.player2 == socket);
-
+                console.log("check 2")
                 if(game){
+                    console.log("calling the makeMove")
+                    console.log(message)
                     game.makeMove(socket, message.move);
                 }
             }
