@@ -24,20 +24,26 @@ function Game() {
             switch (message.type) {
                 case INIT_GAME:
                     console.log("INIT_TYPE: Game Initialized");
-                    setChess(new Chess());
+                    // setChess(new Chess());
                     setBoard(chess.board());
                     break;
                 case MOVE:
                     console.log("move made");
-                    const move = message.playload;
+                    const move = message.payload;
+                    console.log(move)
                     chess.move(move);
-                    setBoard(chess.board);
+                    setBoard(chess.board());
+                    // console.log(chess.board());
                     break;
                 case GAME_OVER:
                     console.log("Game Over");
                     break;
             }
         }
+
+        console.log("inside the game module")        
+        // console.log(chess)
+
     }, [socket])
 
     if (!socket) return <div>connecting......</div>
@@ -48,7 +54,7 @@ function Game() {
                 <div className="pt-8 max-w-screen-lg w-full">
                     <div className="grid grid-cols-3 gap-4 ">
                         <div className="col-span-2 justify-center bg-[#1c202a59] flex p-6">
-                            <ChessBoard socket = {socket} board={board} />
+                            <ChessBoard chess = {chess} setBoard = {setBoard} socket = {socket} board={board} />
                         </div>
                         <div className="col-span-1 justify-center flex">
                             <div className="pt-8">

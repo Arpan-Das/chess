@@ -7,3 +7,5 @@ npx tsc --init
 
 tsc -b
 node .\dist\index.js
+
+npm run dev
